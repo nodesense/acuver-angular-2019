@@ -34,3 +34,10 @@ ng g directive shared/directives/highlight
 ng g pipe shared/pipes/power
 ng g pipe shared/pipes/sort
 
+
+ng g m cart
+
+ng g c cart/components/cart
+ng g c cart/components/cart-item
+ng g class cart/models/cart-item
+ng g service cart/services/cart

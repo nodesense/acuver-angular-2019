@@ -1,3 +1,4 @@
+import { CartModule } from './cart/cart.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -33,8 +34,8 @@ import {FormsModule} from '@angular/forms';
     // ProductModule, CartModule
     BrowserModule,
     SharedModule,
-    FormsModule
-  
+    FormsModule,
+    CartModule
   ],
   providers: [
     // business logic, api calls
