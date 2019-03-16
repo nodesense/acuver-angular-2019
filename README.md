@@ -1,3 +1,21 @@
+# Git
+
+```
+
+git clone https://github.com/nodesense/acuver-angular-2019
+
+cd acuver-angular-2019
+
+npm install
+
+
+ng serve
+
+check browser with localhost:4200
+
+
+```
+
 # Commands
 
 
