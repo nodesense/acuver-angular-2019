@@ -1,3 +1,16 @@
-<p>
-  cart-item works!
-</p>
+<div>
+  <article class="card">
+     <header>
+       <h2>{{cartItem.name | uppercase}}</h2>
+     </header>
+
+     <p>Price: {{cartItem.price | currency:'INR'}}</p>
+     <p>Qty: {{cartItem.qty}}</p>
+
+     <footer>
+       <button (click)="removeItem(cartItem.id)">
+         Remove
+       </button>
+     </footer>
+  </article>
+</div>

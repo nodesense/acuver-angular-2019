@@ -41,3 +41,69 @@ ng g c cart/components/cart
 ng g c cart/components/cart-item
 ng g class cart/models/cart-item
 ng g service cart/services/cart
+
+
+ng g c components/not-found
+
+
+ng g module product
+ng g c product/components/product-list
+ng g c product/components/product-edit
+ng g class product/models/product
+ng g class product/models/brand
+ng g service product/services/product
+
+  
+# REST Server
+
+
+
+
+https://github.com/nodesense/restful-server
+
+Clone or Download button
+
+  Download zip
+  
+  Extract the project fully
+  
+  double click on install.cmd
+  double click on start.cmd
+
+
+
+Events - RXJS
+Forms
+HTTP
+
+(click)="addItem()"
+
+click is an event, triggered/published
+
+addItem is a subscription invoked
+
+
+Publisher [1]
+    Publish something? Observable
+            amount is observable
+                0 
+                10 - publish 10
+            totalItems is observable
+                0
+                1 - publish 1
+                2 - publish 2
+                0 - publish 0
+            cartItems can be observable
+    publish data
+    when ? when data got changed, data arrived first time
+
+Subscriber [1, 2,10, 100]
+
+    Page 1 Cart
+        susbcribe
+        unsubscribe
+    Page 2 Checkout
+        susbcribe
+        unsubscribe
+
+

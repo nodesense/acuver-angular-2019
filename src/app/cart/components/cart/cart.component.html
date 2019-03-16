@@ -1,3 +1,30 @@
-<p>
-  cart works!
-</p>
+<h2>Cart</h2>
+
+<button (click)="add()">
+  Add Item
+</button>
+
+<button (click)="empty()">
+  Empty
+</button>
+
+<div class="flex three">
+
+  <!-- 
+   $event is the id value passed in 
+    .emit(id)
+  -->
+
+  <app-cart-item 
+        *ngFor="let item of cartItems"
+        [cartItem]="item"
+        (removeItemFromCart) = "remove($event)"
+        >
+  </app-cart-item>
+</div>
+
+<ul>
+  <li *ngFor="let item of cartItems" >
+    {{item.name}}
+  </li>
+</ul>

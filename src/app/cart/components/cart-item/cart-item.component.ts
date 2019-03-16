@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { CartItem } from './../../models/cart-item';
+import { Component, OnInit, Input,
+
+  Output,
+  EventEmitter
+
+
+} from '@angular/core';
 
 @Component({
   selector: 'app-cart-item',
@@ -7,9 +14,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartItemComponent implements OnInit {
 
-  constructor() { }
+  // parent to child is property binding
+  @Input()
+  cartItem: CartItem;
+
+  // child to parent communication is event binding/always
+  @Output()
+  removeItemFromCart: EventEmitter<number> = new EventEmitter();
+
+
+
+  constructor() { 
+    console.log('cart Item comp created');
+  }
 
   ngOnInit() {
+  }
+
+  removeItem(id: number) {
+    // publish the id
+    // trigger an event
+    // removeItemFromCart is a publisher
+    // parent should subscribe
+    // (removeItemFromCart)="remove($event)"
+    this.removeItemFromCart.emit(id);
   }
 
 }

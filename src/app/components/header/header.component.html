@@ -1,3 +1,20 @@
 <div>
     <p>{{subTitle}}</p>
+
+    <!-- step 4: configure links -->
+
+    <a routerLink="/" class="button">Home</a>
+    <a routerLink="/products" class="button">Products</a>
+    <a routerLink="/cart" class="button">Cart</a>
+    <a routerLink="/checkout" class="button">Checkout</a>
+    <a routerLink="/about" class="button">About</a>
+
+    <a routerLink="/login" class="button">Login</a>
+
+
+
+    <span> Amount {{amount | currency:'INR'}}</span>
+    <!-- async subscribe unsubscribe, 
+        when data comes, it displays output -->
+    <span> {{totalItems$ | async}} items</span>
 </div>
