@@ -7,15 +7,18 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import {Routes, RouterModule} from '@angular/router';
 const routes: Routes = [
   {
-    path: 'products',
+    //path: 'products',
+    path: '', // lazy loading
     component: ProductListComponent
   },
   {
-    path: 'products/edit/:id',
+    //path: 'products/edit/:id', 
+    path: 'edit/:id', // lazy loading
     component: ProductEditComponent
   },
   {
-    path: 'products/create',
+    //path: 'products/create',
+    path: 'create', // lazy loading
     component: ProductEditComponent
   }
 ];

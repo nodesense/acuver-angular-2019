@@ -1,3 +1,75 @@
-<p>
-  product-edit works!
-</p>
+<h2>Product Edit</h2>
+
+<!--
+  <input name="name"
+           [(ngModel)]="product.name"
+           
+           #product ==> DOM ELEMENT 
+           #productName="ngModel" ==> reference to ngModel directive instance
+           />
+
+
+
+-->
+
+<p *ngIf="productForm.dirty">
+    Form is edited
+  </p>
+
+
+  <p *ngIf="productForm.invalid">
+      Form is invalid
+   </p>
+
+
+<form (ngSubmit)="save()" #productForm="ngForm">
+  Name
+    <input name="name"
+           [(ngModel)]="product.name"
+           
+           #productName="ngModel"
+
+           required
+           minlength="3"
+           />
+
+   <p *ngIf="productName.dirty">
+     Name is edited
+   </p>
+
+
+   <p *ngIf="productName.invalid">
+      Name is invalid
+    </p>
+
+   <pre>
+     Errors if any {{productName.errors | json}}
+   </pre>
+
+  Price 
+    <input name="price"
+            type="number"
+            [(ngModel)]="product.price" />
+
+  Year
+    <input name="year"
+    type="number"
+    [(ngModel)]="product.year" />
+
+  Brand
+    <select name="brandId"
+            [(ngModel)]="product.brandId">
+          
+      <option *ngFor="let brand of brands$ | async"
+              [value]="brand.id">
+            {{brand.name}}
+      </option>
+          
+    </select>
+
+   <button type="submit"
+           [disabled]="productForm.invalid"
+   
+   >Save</button>
+
+</form>

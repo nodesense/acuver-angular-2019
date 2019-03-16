@@ -1,5 +1,5 @@
-import { ProductModule } from './product/product.module';
-import { CartModule } from './cart/cart.module';
+// import { ProductModule } from './product/product.module';
+// import { CartModule } from './cart/cart.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -34,6 +34,16 @@ const routes: Routes = [
     path: 'checkout',
     component: CheckoutComponent
   },
+
+  {
+    path: 'products',
+    loadChildren: './product/product.module#ProductModule'
+  },
+  {
+    path: 'cart',
+    loadChildren: './cart/cart.module#CartModule'
+  },
+
   {
     path: '**',
     component: NotFoundComponent
@@ -62,8 +72,8 @@ const routes: Routes = [
     BrowserModule,
     SharedModule,
     FormsModule,
-    CartModule,
-    ProductModule,
+   // CartModule,
+   // ProductModule,
     // step: apply the route configuration in angular
     RouterModule.forRoot(routes),
     HttpClientModule
