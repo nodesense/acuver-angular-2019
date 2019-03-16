@@ -1,3 +1,4 @@
+// product.service.ts
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
