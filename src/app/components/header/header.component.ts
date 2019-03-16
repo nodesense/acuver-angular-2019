@@ -1,6 +1,8 @@
+import { AuthService } from './../../auth/services/auth.service';
 import { CartService } from './../../cart/services/cart.service';
 import {Component, OnInit} from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 /// <app-header>
 
@@ -17,9 +19,14 @@ export class HeaderComponent implements OnInit {
 
     amount: number;
     totalItems$: Observable<number>;
+    authenticated$:  Observable<boolean>;
 
-    constructor(private cartService: CartService) {
+    constructor(private cartService: CartService, 
+                private authService: AuthService, 
+                private router: Router
+                ) {
         this.totalItems$ = this.cartService.totalItems$;
+        this.authenticated$ = this.authService.authenticated$;
     }
 
     // called after view is initialized in the browser
@@ -32,5 +39,10 @@ export class HeaderComponent implements OnInit {
                             console.log('at header ', nextAmount);
                             this.amount = nextAmount;
                         });
+    }
+
+    logout() {
+        this.authService.logout();
+        this.router.navigate(['/']);
     }
 }

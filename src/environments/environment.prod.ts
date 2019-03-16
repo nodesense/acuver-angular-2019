@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   // api.example.com
-  apiEndPoint: 'http://localhost:7070',
-  authEndPoint: 'http://localhost:7070/oauth/token'
+  apiEndPoint: 'http://api.nodesense.ai',
+  authEndPoint: 'http://api.nodesense.ai/oauth/token'
 };

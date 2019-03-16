@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth/guards/auth.guard';
+import { AuthModule } from './auth/auth.module';
 // import { ProductModule } from './product/product.module';
 // import { CartModule } from './cart/cart.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,12 +34,14 @@ const routes: Routes = [
   },
   {
     path: 'checkout',
-    component: CheckoutComponent
+    component: CheckoutComponent,
+    canActivate: [AuthGuard], // list of guards
   },
 
   {
     path: 'products',
-    loadChildren: './product/product.module#ProductModule'
+    loadChildren: './product/product.module#ProductModule',
+    // canActivate: [AuthGuard], // list of guards
   },
   {
     path: 'cart',
@@ -76,7 +80,8 @@ const routes: Routes = [
    // ProductModule,
     // step: apply the route configuration in angular
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [
     // business logic, api calls

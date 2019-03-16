@@ -9,8 +9,17 @@
     <a routerLink="/checkout" class="button">Checkout</a>
     <a routerLink="/about" class="button">About</a>
 
-    <a routerLink="/login" class="button">Login</a>
+    <a routerLink="/login" class="button"
+         routerLinkActive='success'
+            *ngIf="!(authenticated$ | async)" 
+        >
+        Login
+        </a>
 
+        <button  *ngIf="(authenticated$ | async)" 
+                (click)="logout()">
+                 Logout
+        </button>
 
 
     <span> Amount {{amount | currency:'INR'}}</span>

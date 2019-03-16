@@ -53,6 +53,11 @@ ng g class product/models/product
 ng g class product/models/brand
 ng g service product/services/product
 
+ng g m auth
+ng g c auth/components/login
+ng g service auth/services/auth
+ng g service auth/services/interceptor
+ng g guard auth/guards/auth
   
 # REST Server
 
