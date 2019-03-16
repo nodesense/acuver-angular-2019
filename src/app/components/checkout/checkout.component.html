@@ -1,0 +1,87 @@
+<h2>Checkout</h2>
+
+<!-- [()] - two way binding 
+     sync data between view to component and 
+                       component to view
+    ngModel is a directive
+
+    # - template reference variable
+-->
+<form (ngSubmit)="save()">
+    City 
+    <input name="city" 
+           type="text"
+           [(ngModel)]="address.city" />
+
+    State 
+    <input name="state" 
+            type="text"
+            
+            [ngModel]="address.state"
+            (ngModelChange) = "address.state = $event"
+            
+            />
+
+    Pincode 
+    <input name="pincode" 
+            type="number"
+            [(ngModel)]="address.pincode" />
+
+    <button type="submit">Save</button>
+</form>
+
+<!--
+
+fullName, p1 are referring to REAL DOM elements
+
+-->
+
+<input name="name" #fullName />
+
+Your name is
+<p #p1 >
+
+</p>
+
+<button (click)="p1.textContent = fullName.value;fullName.value='' ">
+    Set Name
+</button>
+
+<pre>
+    {{address | json}}
+    </pre>
+
+<p> Product {{productName | uppercase }}</p>
+<p> Product Original name {{productName }}</p>
+
+<p> Amount {{amount | currency}}</p>
+<p> Amount {{amount | currency:'INR':'symbol':'.4'}}</p>
+<p> Amount {{amount | currency:'EUR'}}</p>
+
+<p> Raw Number {{amount }}</p>
+
+<p> Number {{amount | number:precision }}</p>
+
+<p> Checkout time {{checkoutTime}} </p>
+
+<p> Checkout time {{checkoutTime | date }} </p>
+
+<p> Checkout time {{checkoutTime | date | uppercase }} </p>
+
+<p> Checkout time {{checkoutTime | date:'dd-MM-yyyy' }} </p>
+
+
+<p> Counter {{counter}}</p>
+
+<p> counter ^ 2 {{counter | power:2}} </p>
+
+<p> 3 ^ counter {{3 | power:counter}} </p>
+
+<p> counter ^ counter {{counter | power:counter}} </p>
+
+<p> counter {{counter | power}} </p>
+
+
+<button (click)="counter = counter + 1">
+    +1
+</button>

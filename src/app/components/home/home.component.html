@@ -1,0 +1,52 @@
+<h2 appHighlight color='lightblue'>Home</h2>
+
+<!--
+
+  {{expr}} -- interpolation - 
+                eval the expression, 
+                convert the result to string
+
+  [propName]="expr" - property binding
+
+  (eventName)="expr" - event binding
+
+  *ngIf - *structural directive create/delete the dom element
+
+  ngClass - attribute directive modify/set attributes
+
+  # - template reference variable, a variable inside html
+
+  .? - elvis operator - null/undefiend check
+-->
+
+<p  > 
+  Branch City: {{branchAddress?.city}}
+</p>
+
+<p>Counter {{counter}}</p>
+
+<p> Counter + 1 = {{counter + 1}} </p>
+
+<input [value]="counter + 3" />
+
+<button (click)="increment()">
+  +1
+</button>
+
+<!-- ng 4, else part -->
+<p *ngIf="counter % 2 == 1 else elseText"
+   (mouseenter)="isMouseOn = true"
+   (mouseleave)="isMouseOn = false"
+
+   [ngClass]="{highlightColor: isMouseOn}"
+>
+  Odd Number
+</p>
+
+<ng-template #elseText>
+  <p>Even Number </p>
+</ng-template>
+
+<p> 
+  City: {{mainAddress.city}}
+</p>
